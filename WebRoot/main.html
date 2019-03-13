@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>    
+    <title>切糕大队 • 卷烟零售管理系统 | main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jconfirmaction.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.ask').jConfirmAction();
+		});
+	</script>
+</head>
+
+<body>
+    <div class="right_content">            
+        <h2>产品列表</h2>
+		<div class="top-input">
+			<form action="" name="search" method="post">
+            	<table id="top-table">
+                    <tbody>
+                        <tr>
+                            <td>
+								<span>商品名称</span>
+								<select name="" class="">
+                                    <option>中华香烟</option>
+                                </select>
+                            </td>
+                            <td>
+                            	<span>商品代码</span>
+                                <input type="text" class="textfield"/>
+                            </td>
+                            <td>
+								<span>零售价格</span>
+								<select name="" class="">
+                                    <option>￥150</option>
+                                </select>
+                            </td>
+                            <td>
+								<!-- Search -->
+                                <div class="search">
+                                    <input type="text" class="field"/>
+                                    <input type="submit" class="button" value="GO" />
+                                </div>
+							  <!-- / Search -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+			</form>
+	  </div>                   
+		<table id="rounded-corner">
+            <thead>
+                <tr>
+                    <th scope="col" class="rounded-company"><input type="checkbox" name="input" /></th>
+                    <th scope="col" class="rounded">商品名称</th>
+                    <th scope="col" class="rounded">商品代码</th>
+                    <th scope="col" class="rounded">零售价格</th>
+                    <th scope="col" class="rounded">批发价格</th>
+                    <th scope="col" class="rounded">条形码</th>
+                    <th scope="col" class="rounded">日期</th>
+                    <th scope="col" class="rounded">修改</th>
+                    <th scope="col" class="rounded-q4">删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 单条记录 -->
+                <tr>
+                    <td><input type="checkbox" name="" /></td>
+                    <td>中华香烟</td>
+                    <td>0031</td>
+                    <td>￥150</td>
+                    <td>￥120</td>
+                    <td>111111</td>
+                    <td>2010/12/05</td>
+                    <td><a href="update.html"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+                </tr>
+                <!--end 单条记录 -->
+                
+                <!-- 单条记录 -->
+                <tr>
+                    <td><input type="checkbox" name="" /></td>
+                    <td>中华香烟</td>
+                    <td>0031</td>
+                    <td>￥150</td>
+                    <td>￥120</td>
+                    <td>111111</td>
+                    <td>2010/12/05</td>
+                    <td><a href="update.html"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+                </tr>
+                <!--end 单条记录 -->
+                
+                <!-- 单条记录 -->
+                <tr>
+                    <td><input type="checkbox" name="" /></td>
+                    <td>中华香烟</td>
+                    <td>0031</td>
+                    <td>￥150</td>
+                    <td>￥120</td>
+                    <td>111111</td>
+                    <td>2010/12/05</td>
+                    <td><a href="update.html"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+                </tr>
+                <!--end 单条记录 -->
+                
+                <!-- 单条记录 -->
+                <tr>
+                    <td><input type="checkbox" name="" /></td>
+                    <td>中华香烟</td>
+                    <td>0031</td>
+                    <td>￥150</td>
+                    <td>￥120</td>
+                    <td>111111</td>
+                    <td>2010/12/05</td>
+                    <td><a href="update.html"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+                </tr>
+                <!--end 单条记录 -->
+                
+                <!-- 单条记录 -->
+                <tr>
+                    <td><input type="checkbox" name="" /></td>
+                    <td>中华香烟</td>
+                    <td>0031</td>
+                    <td>￥150</td>
+                    <td>￥120</td>
+                    <td>111111</td>
+                    <td>2010/12/05</td>
+                    <td><a href="update.html"><img src="images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="#" class="ask"><img src="images/trash.png" alt="" title="" border="0" /></a></td>
+                </tr>
+                <!--end 单条记录 -->
+            </tbody>
+            <tfoot>
+				<tr>
+                    <td colspan="9" class=""><em>注：产品以实物为准！</em></td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        <!-- 页码 + 按钮 -->
+		<div class="btns-pagenav">
+			<!-- 按钮 -->
+            <div class="div-btns">
+                <a href="add.html" class="bt_green">添 加 商 品</a>
+                <a href="#" class="bt_green">显示全部商品</a>
+                <a href="#" class="bt_green">批 量 删 除</a>
+            </div> 
+			<!--end 按钮 --> 
+            
+			<!-- 页码 -->
+			<div class="page-navigator">
+                <div class="page-navigator-left">
+				每页
+                <select class="select-short" name="select">
+                  <option value="0" selected="selected">5</option>
+                  <option value="1">10</option>
+                  <option value="2">15</option>
+                </select>
+				条
+                </div>
+				<div class="page-navigator-right">
+                <a href="" class="first">«</a>
+                <a href="" class="prev">‹</a>
+                &nbsp;第 1 页&nbsp; &nbsp;共 20 页&nbsp;
+                <a href="" class="next">›</a>
+                <a href="" class="last">»</a>
+                </div>
+			</div>
+			<!--End 页码 -->
+        </div>
+        <!-- / 页码 + 按钮 -->
+    </div>
+	<div class="clear"></div>
+</body>
+</html>

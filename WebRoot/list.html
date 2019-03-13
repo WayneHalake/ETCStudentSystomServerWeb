@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>    
+    <title>切糕大队 • 卷烟零售管理系统 | 销售收银界面</title>	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jconfirmaction.jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.ask').jConfirmAction();
+		});
+	</script>
+	
+	<META http-equiv=Content-Type content="text/html; charset=utf-8">
+	<!-- 会员样式-->
+	<style>
+	#popupcontent{   position: absolute;   visibility: hidden;   overflow: hidden;   border:1px solid #CCC;   background-color:#F9F9F9;   border:1px solid #333;   padding:5px;}
+	</style>
+	
+	<script>
+	var baseText = null; function showPopup(w,h){   var popUp = document.getElementById("popupcontent");    popUp.style.top = "350px";   popUp.style.left = "250px";   popUp.style.width = w + "px";   popUp.style.height = h + "px";    if (baseText == null) baseText = popUp.innerHTML;   popUp.innerHTML = baseText +       "<div id=\"statusbar\"></div>";    var sbar = document.getElementById("statusbar");   sbar.style.marginTop = (parseInt(h)-60) + "px";   popUp.style.visibility = "visible";}
+	function hidePopup(){   var popUp = document.getElementById("popupcontent");   popUp.style.visibility = "hidden";}
+	</script>
+
+<!-- 取单样式-->
+<style>
+#popupcontent1{   position: absolute;   visibility: hidden;   overflow: hidden;   border:1px solid #CCC;   background-color:#F9F9F9;   border:1px solid #333;   padding:5px;}
+</style>
+<script>
+var baseText1 = null; function showPopup1(w,h){   var popUp1 = document.getElementById("popupcontent1");    popUp1.style.top = "350px";   popUp1.style.left = "250px";   popUp1.style.width = w + "px";   popUp1.style.height = h + "px";    if (baseText1 == null) baseText1 = popUp1.innerHTML;   popUp1.innerHTML = baseText1 +       "<div id=\"statusbar1\"></div>";    var sbar1 = document.getElementById("statusbar1");   sbar1.style.marginTop = (parseInt(h)-60) + "px";   popUp1.style.visibility = "visible";}
+function hidePopup1(){   var popUp1 = document.getElementById("popupcontent1");   popUp1.style.visibility = "hidden";}
+</script>
+<META content="MSHTML 6.00.2900.2838" name=GENERATOR>
+	
+	
+</head>
+	<body>
+		<div class="right_content" style="overflow:hidden;">
+			<h2>收银</h2>
+			<div class="top-input">
+				<form action="SellServlet" name="search" method="post">
+					<table id="top-table">
+						<tbody>
+							<tr>
+								<td>
+									<span class="search">条形码</span>
+									<input type="text" class="textfield" name="goodBarcode" />
+								</td>
+								<td style="padding-right: 10px;">
+									<span class="search">数量</span>
+									<input type="text" class="textfield" name="count" />
+									<input type="hidden" name="index" value="${index}"/>
+								</td>
+								<td>
+									<input type="submit" class="button" value="确定" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<!--取单验证页面集合-->
+			<div id="popupcontent1">
+			<form action="RestOrderServlet?do=vip" name="ok1" method="post">
+			<center><b><h2>取单验证</h2></b></center>
+			单号：<input type="text" name="restOrderId"><br/><br/>
+			<center>
+			<input type="submit" value="确定">&nbsp;&nbsp;&nbsp;
+			<input name="oo" type="button" value="取消" onClick="hidePopup1();">
+			</center>
+			</form></div>
+			
+			<!--会员验证页面集合-->
+			<div id="popupcontent">
+			<form action="SellServlet?do=vip" name="ok" method="post">
+			<center><b><h2>会员验证</h2></b></center>
+			用户名：<input type="text" name="userName"><br/><br/>
+			密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="userPassword"><br/>
+			<center>
+			<input type="submit" value="确定">&nbsp;&nbsp;&nbsp;
+			<input name="ooo" type="button" value="取消" onClick="hidePopup();">
+			</center>
+			</form>
+			</div>
+
+			<table id="rounded-corner">
+				<thead>
+					<tr>
+						<th scope="col" class="rounded">商品名称</th>
+						<th scope="col" class="rounded">数量</th>
+						<th scope="col" class="rounded">总价</th>
+						<th scope="col" class="rounded-q4">删除</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 单条记录 -->
+					<c:forEach items="${orders}" var="order">
+					<tr>
+						<td>${order.good.goodName}</td>
+						<td>${order.ordernum}</td>
+						<td>${order.pay}</td>
+						<td>
+							<a href="SellServlet?do=del&id=${order.ordersId}" class="ask">
+								<img src="images/trash.png" alt="" title="" border="0" />
+							</a>
+						</td>
+					</tr>
+					</c:forEach>
+					<!--end 单条记录 -->
+				</tbody>
+			</table>
+			<c:if test="${sessionScope.serialnumber !=null}">
+				流水号：${sessionScope.serialnumber}
+			</c:if>
+			<!-- 页码 + 按钮 -->
+			<div class="btns-pagenav">
+
+				<!-- 按钮集 -->
+				<div class="div-btns">
+					<a href="RestOrderServlet?do=rest" class="bt_small">挂单</a>
+					<a href="RestOrderServlet?do=getrest" class="bt_small">取单</a>
+            		<a href="javascript:showPopup(250,150);" class="bt_small">会员</a>
+            		<a href="SellServlet?f=delOrder&&serialnumber=${serialnumber}" class="bt_small">取消订单</a>
+				</div>
+				<!-- / 按钮集 -->
+				<!-- 页码 -->
+				<div class="page-navigator">
+					<!--
+	                <div class="page-navigator-left">
+					每页
+	                <select class="select-short" name="select">
+	                  <option value="0" selected="selected">5</option>
+	                  <option value="1">10</option>
+	                  <option value="2">15</option>
+	                </select>
+					条
+	                </div>
+					-->
+				</div>
+				<!--End 页码 -->
+				</div>
+				<!-- / 页码 + 按钮 -->
+
+			<!-- 实际付款 + 找零 + 结算btn -->
+			<div class="btns-pagenav" style="padding-top: 50px; height: auto;"
+				align="right">
+				<form action="SellServlet?f=sun&&priceToal=${priceToal}" name="search" method="post">
+					<table id="account-table">
+	                    <tbody>
+	                        <tr>
+	                            <td align="right">
+									<strong>商品总价：${pays==null?0.0:pays}</strong>
+	                            </td>
+								<td align="right">
+									<font size="+2" color="#80AB38"><strong>${priceToal}</strong></font>
+								</td>
+								<td><span>元</span></td>
+	                            <td rowspan="2" valign="bottom">
+	                            	<a name="check" href="SellServlet?do=check" class="btn-account">结算</a>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                        	<td align="right"><span>实际付款：</span></td>
+	                            <td align="right"><input type="text" class="textfield" name="payPrice"/></td>
+	                            <td><span>元</span></td>
+	                        </tr>
+	                    </tbody>
+					</table>
+				</form>
+			</div>
+			<!-- / 实际付款 + 找零 + 结算btn -->
+		</div>
+		<div class="clear"></div>
+	</body>
+</html>
